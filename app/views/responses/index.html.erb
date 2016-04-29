@@ -1,0 +1,44 @@
+<h1>This page will show all the RSVPs!</h1>
+
+
+<table border="2">
+    <tr>
+    <th>Name</th>
+    <th>Attending</th> 
+    <th>Comments</th>
+  </tr>
+  <% @responses.each do |r| %>
+  <tr>
+    <td><%= r.name %></td>
+    <td><%= r.attending %></td> 
+    <td><%= r.comments %></td>
+    <td><%= r.created_at %></td>
+    <td><%= link_to "Edit", edit_response_path(r) %></td>
+    <td><%= link_to "Delete", r, method: :delete  %></td> 
+  </tr>
+  <% end %>
+</table>
+
+<% if @responses.size == 0 %>
+<em>No RSVPs found!</em>
+<% end %>
+
+<br /><br /><br />
+
+<h2>Admins</h2>
+<table  border="1">
+    <tr>
+    <th>Name</th>
+    <th>Email</th> 
+  </tr>
+  <% @admins.each do |a| %>
+  <tr>
+    <td><%= a.name %></td>
+    <td><%= a.email %></td> 
+    <td><%= link_to "Edit", edit_admin_path(a) %></td>
+    <td><%= link_to "Delete", a, method: :delete  %></td> 
+  </tr>
+  <% end %>
+</table>
+
+<br /><br /><br /><%= link_to 'Back to homepage', root_url %>

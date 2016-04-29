@@ -1,0 +1,30 @@
+<h1>RSVP</h1>
+<br>
+
+
+<%= form_for(@response) do |r| %>  
+    <% if @response.errors.any? %>
+      <h2>Errors:</h2>
+      <ul>
+        <% @response.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  
+  <div class="field"> 
+    Name: 
+    <%= r.text_field :name %><br /><br />
+    Attending: <br />
+    <%= r.radio_button :attending, 'y' %> Yes<br />
+    <%= r.radio_button :attending, 'n' %> No<br /><br />
+    Comments: <br />
+    <%= r.text_area :comments %> 
+  </div> 
+  <div class="actions"> 
+    <%= r.submit "Create" %> 
+  </div> 
+<% end %>
+
+
+<br /><br /><br /><%= link_to 'Back to homepage', root_url %>
