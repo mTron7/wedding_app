@@ -1,25 +1,31 @@
 class ResponsesController < ApplicationController
     before_action :get_response, only: [:edit, :update, :destroy]
-    #before_action :check_auth, only: [:edit, :update, :destroy]
+    before_action :require_user, only: [:index, :edit, :update, :destroy]
+
+    def wedding
+      @response = Response.new
+    end
+    
     
     def get_response
       @response = Response.find(params[:id])
     end
     
-    #def check_auth
-    #    if session[:zombie_id] != @tweet.zombie_id
-    #        flash[:notice] = "Sorry, you do not have permission!"
-    #        redirect_to tweets_path
-    #    end
-    #end
-    
     def home
+      @response = Response.new
     end
     
     
     def index
       @responses = Response.all
       @admins = Admin.all
+      respond_to do |format|
+        format.html
+        format.csv do
+          headers['Content-Disposition'] = "attachment; filename=\"RSVP-list.csv\""
+          headers['Content-Type'] ||= 'text/csv'
+        end
+      end
     end
     
     def new 
@@ -27,18 +33,20 @@ class ResponsesController < ApplicationController
     end
   
     def create 
-      @response = Response.new(message_params) 
-      if @response.save 
-        redirect_to '/all' 
-      else 
-        render 'new' 
-      end 
+      @response = Response.new(message_params)  
+      respond_to do |format|
+        if @response.save
+          format.html { redirect_to @response, notice: 'Thank you for you response!' }
+          format.js   {}
+          format.json { render json: @response, status: :created, location: @response }
+        else
+          format.html { render :new }
+          format.js
+          format.json { render json: @response.errors, status: :unprocessable_entity }
+        end
+      end
     end
-  
-    #load the edit page
-    def edit
-    end
-    
+        
     #accepts the details and writes to model
     def update
       if @response.update_attributes(message_params)
@@ -58,7 +66,7 @@ class ResponsesController < ApplicationController
     
     private 
     def message_params 
-      params.require(:response).permit(:name, :attending, :comments) 
+      params.require(:response).permit(:guest1, :guest2, :attending, :comments) 
     end
 end
 

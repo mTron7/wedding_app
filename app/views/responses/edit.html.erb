@@ -1,5 +1,7 @@
-<h1>Edit RSVP</h1>
-<br>
+<div class="title">
+  <p>Edit RSVP</p>
+</div>
+<br /><br />
 
 
 <%= form_for(@response) do |r| %>  
@@ -12,26 +14,41 @@
         <% end %>
       </ul>
     <% end %>
-   
-    Name: 
-    <%= r.text_field :name , class: 'form-control' %><br /><br />
-    
-    Attending: <br />
-    <% if %>
-      <%= r.radio_button :attending, 'y' %> Yes<br />
-      <%= r.radio_button :attending, 'n' %> No<br /><br />
-    <% else %>
-      <%= r.radio_button :attending, 'y' %> Yes<br />
-      <%= r.radio_button :attending, 'n' %> No<br /><br />
-    <% end %>
-    
-    Comments: <br />
-    <%= r.text_area :comments %> 
-  </div> 
-  <div class="actions"> 
-    <%= r.submit "Update" %> 
+   <table class="form-table">
+     <tr>
+        <th>Guest 1:</th> 
+        <th><%= r.text_field :guest1 %></th>
+     <tr>
+        <th>Guest 2:</th> 
+        <th><%= r.text_field :guest2 %></th>
+     <tr>
+       <tr>
+        <th><br /></th>
+      </tr>
+     </tr> 
+        <th>Attending:</th>
+      </tr>
+        <div class="radios">
+				    <th></th>
+				    <th><%= r.radio_button :attending, 'y' %>
+				    <label class="radio" for="response_attending_y">Yes</label>
+				    <%= r.radio_button :attending, 'n' %>
+				    <label class="radio" for="response_attending_n">No</label></th>
+				</div>
+      </tr>
+      <tr>
+        <th><br /></th>
+      </tr>
+      <tr>
+        <th>Comments:</th>
+        <th><%= r.text_area :comments %></th>
+        </th>
+      </tr>
+    </table>
+    <br />
+    <%= r.submit "Update", id: "btn-login" %> 
   </div> 
 <% end %>
 
 
-<br /><br /><br /><%= link_to 'Back to All RSVPs', all_responses_path %>
+<br /><br /><%= link_to 'Back to All RSVPs', all_responses_path %>

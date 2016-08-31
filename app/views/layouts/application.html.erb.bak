@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wedding Page</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body id="main">
+
+
+
+<div id="mySidenav" class="sidenav">
+    <a href="#">Bride & Groom</a>
+    <a href="#">Wedding</a>
+    <a href="#">Registry & Gifts</a>
+    <%= link_to 'Home', root_url %>
+    <div class="bottomright"><a href="/all">Login</a></div>
+</div>
+
+<span>
+  <div id="nav-icon3">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</span>
+
+<%= yield %>
+ 
+
+</body>
+</html>

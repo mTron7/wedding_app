@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> <!--interferring with menu button, needed for authenication key. removed //= require_tree .-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+	<title>Christina and Jesse's Wedding</title>
+
+	<%= stylesheet_link_tag    'jquery.fullPage', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'examples', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>
+	
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+  <%= javascript_include_tag 'jquery.fullPage', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			 $('#fullpage').fullpage({
+				anchors: ['Home', 'Details', 'Story', 'Gifts', 'RSVP', 'Gallery'],
+				sectionsColor: ['white', '#2d5986', '#7E8F7C','#C63D0F','#1BBC9B','#2d5986'],
+				navigation: true,
+				navigationPosition: 'right',
+				navigationTooltips: ['Home', 'Wedding Details', 'Their Story', 'Gifts / Registry', 'RSVP', 'Gallery']
+			});
+		});
+	</script>
+
 </head>
 <body>
+
 
 <%= yield %>
 

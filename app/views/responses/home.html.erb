@@ -1,8 +1,28 @@
-<div>
-<h1>Wedding homepage!</h1>
-</div>
-
-<div>
-    <a href="/new">Click Here to RSVP!</a><br>
-    <a href="/all">Click here to see all responses</a>
+<div class="jumbotron">
+  <h1>Christina and Jesse's Wedding!</h1>      
+  <p>~ April 01 2017 | Ridges Wedding Venue ~</p>
+  <a href="/new" data-transition="slide">RSVP</a>
+  <div id="envelope" class="pulse">
+    <div id="envelope-up"></div>
+    <form id="card">
+      <div id="close"></div>
+      
+      <%= form_for(@response, remote: true) do |r| %>  
+        <div class="field"> 
+          Name: 
+          <%= r.text_field :name %><br /><br />
+          Attending: <br />
+          <%= r.radio_button :attending, 'y' %> Yes<br />
+          <%= r.radio_button :attending, 'n' %> No<br /><br />
+          Comments: <br />
+          <%= r.text_area :comments %> 
+        </div> 
+        <div id="actions"> 
+          <%= r.submit "Create" %> 
+        </div> 
+      <% end %>
+      
+    </form>
+  </div>
+  
 </div>

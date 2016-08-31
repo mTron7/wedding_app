@@ -1,8 +1,4 @@
-<h1>RSVP</h1>
-<br>
-
-
-<%= form_for(@response) do |r| %>  
+<%= form_for(@response, remote:true) do |r| %>  
     <% if @response.errors.any? %>
       <h2>Errors:</h2>
       <ul>
@@ -25,6 +21,3 @@
     <%= r.submit "Create" %> 
   </div> 
 <% end %>
-
-
-<br /><br /><br /><%= link_to 'Back to homepage', root_url %>

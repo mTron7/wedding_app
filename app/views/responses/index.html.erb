@@ -1,20 +1,26 @@
-<h1>This page will show all the RSVPs!</h1>
-
+<div class="title">
+    <p>Admin Page</p>
+</div>
+<br />
+<div class="field-index">  
+<p>Hello <%= current_user.first_name %>.</p>
 
 <table border="2">
     <tr>
-    <th>Name</th>
+    <th>Guest 1</th>
+    <th>Guest 2</th>
     <th>Attending</th> 
     <th>Comments</th>
   </tr>
   <% @responses.each do |r| %>
   <tr>
-    <td><%= r.name %></td>
+    <td><%= r.guest1 %></td>
+    <td><%= r.guest2 %></td>
     <td><%= r.attending %></td> 
     <td><%= r.comments %></td>
     <td><%= r.created_at %></td>
     <td><%= link_to "Edit", edit_response_path(r) %></td>
-    <td><%= link_to "Delete", r, method: :delete  %></td> 
+    <td><%= link_to "Delete", r, method: :delete, data: { confirm: 'Are you sure you want to delete RSVP?' } %></td> 
   </tr>
   <% end %>
 </table>
@@ -23,22 +29,31 @@
 <em>No RSVPs found!</em>
 <% end %>
 
-<br /><br /><br />
+<%= link_to 'Download CSV list', responses_path(format: :csv) %>
+</div>
 
+<br />
+
+<div class="field-index"> 
 <h2>Admins</h2>
 <table  border="1">
     <tr>
-    <th>Name</th>
-    <th>Email</th> 
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Password</th>
   </tr>
   <% @admins.each do |a| %>
   <tr>
-    <td><%= a.name %></td>
-    <td><%= a.email %></td> 
+    <td><%= a.first_name %></td>
+    <td><%= a.last_name %></td>
+    <td><%= a.email %></td>
+    <td><%= a.password_digest %></td>
     <td><%= link_to "Edit", edit_admin_path(a) %></td>
-    <td><%= link_to "Delete", a, method: :delete  %></td> 
+    <td><%= link_to "Delete", a, method: :delete , data: { confirm: 'Are you sure you want to delete admin user?' } %></td> 
   </tr>
   <% end %>
 </table>
-
-<br /><br /><br /><%= link_to 'Back to homepage', root_url %>
+<%= link_to "Sign up a new admin", 'signup' %>
+</div>
+<br /><br /><br /><%= link_to "Log out", logout_path, method: "delete" %>

@@ -1,0 +1,5 @@
+<%- headers = ['name', 'attending','comments'] -%>
+<%= CSV.generate_line headers -%>
+<%- @responses.each do |r| -%>
+<%= CSV.generate_line([r.name, r.attending, r.comments]) -%>
+<%- end -%>

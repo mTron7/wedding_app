@@ -1,0 +1,36 @@
+<div class="title">
+<p>Sign up</p>
+</div>
+<br /><br />
+<%= form_for(@admin) do |u| %>  
+<div class="field"> 
+<table class="form-table">
+  <tr>
+      <td>First name: </td>
+      <td><%= u.text_field :first_name %></td>
+  </tr>
+  <tr>
+      <td>Last name: </td>
+      <td><%= u.text_field :last_name %></td>
+  </tr>
+  <tr>
+      <td>Email: </td>
+      <td><%= u.text_field :email %></td>
+  </tr>
+</table>
+<br />
+<table>
+  <tr>
+    <td>*** Leave password blank for no change ***</td>
+  </tr>
+  <tr>
+      <td>New Password: </td>
+      <td><%= u.password_field :password %></td> 
+  </tr>
+</table>
+<br /><br />
+  <%= u.submit "Make Changes", id: "btn-login" %> 
+</div> 
+<% end %>
+
+<br /><br /><br /><%= link_to 'Back to Admin page', all_responses_path %>

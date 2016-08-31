@@ -13,3 +13,376 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section{
+	text-align:center;
+}
+/* Overwriting styles for control arrows for slides
+* --------------------------------------- */
+.controlArrow.prev {
+	left: 50px;
+}
+.controlArrow.next{
+	right: 50px;
+}
+
+body {
+    background-color: white;
+}
+.title {
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding-top: 5px;
+    background-color: black;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+/* Home section styling */
+#pic1 {
+    position: static;
+    width: auto;
+    max-height: 41%;
+}
+#pic2 {
+    display: inline-block;
+    width: auto;
+    max-height: 41%;
+    margin: 1%
+}
+#pic3 {
+    display: inline-block;
+    width: auto;
+    max-height: 41%;
+    margin: 1%
+}
+#introtitle {
+    color: grey;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding-top: 5px;
+}
+
+
+/* Wedding Details section styling */
+#info-date {
+    color: white;
+}
+#info-address {
+    color: white;
+}
+#info-time {
+    color: white;
+}
+
+/* Their Story section styling */
+#slide1 {
+    background-image: url('hisstory.jpg');
+    background-position: center 40%;
+    background-size: cover;
+}
+#slide2 {
+    background-image: url('theirstory.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+#slide3 {
+    background-image: url('herstory.jpg');
+    background-position: center 20%;
+    background-size: cover;
+}
+
+
+.textbox {
+  position: relative;
+  margin: 30px;
+  top: -25px;
+  background-color: grey;
+  border: 1px solid black;
+  opacity: 0.8;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+.textbox p {
+  text-align: justify;
+  margin: 2%;
+  font-weight: bold;
+  color: white;
+  font-size: 2.5vh;
+}
+
+/* Gifts section styling */
+#section3 {
+    background-image: url('registry.jpg');
+    background-position: 70% center;
+    background-size: cover;
+}
+.textbox-gifts {
+  position: relative;
+  margin: 30px;
+  top: -25px;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+.textbox-gifts p {
+  text-align: center;
+  margin: 2%;
+  font-weight: bold;
+  color: black;
+  font-size: 2vh;
+}
+
+
+/* RSVP section styling */
+#section4 {
+    background-image: url('rsvp.jpg');
+    background-position: 70% center;
+    background-size: cover;
+}
+.field {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    opacity: 0.97;
+}
+input[type=text] {
+    padding: 10px 20px;
+    width: 60%;
+    border: none;
+    border-bottom: 2px solid grey;
+    box-sizing: border-box;
+}
+.radio{
+    background-color:#c5e043;
+    display:inline-block;
+    width:49%;
+    height:50px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+input[type=radio]{
+    display:none
+}
+input[type=radio]:checked + .radio{
+    background-color:#97af1d
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+input[type=submit] {
+    border-radius: 8px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px 30% 20px 25%;
+    width: 20%;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+input[type=submit]:hover {
+    background-color: #2f6a31; 
+    color: white;
+}
+input[type=submit]:active {
+  background-color: #2f6a31;
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+#login {
+  position: absolute;
+  left: 1%;
+  bottom: 1%;
+  max-width: 2%;
+  height: auto;
+}
+
+/* Gallery section*/
+.thumbnail {
+  position: relative;
+  width: 11vh;
+  height: 11vh;
+  overflow: hidden;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  object-fit: cover; /* Do not scale the image */
+ 
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 3%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-height: 90vh;
+    max-width: 90vw;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: red;
+    /*color: #f1f1f1;*/
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 400px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+
+/* Login section */
+#session_email {
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid grey;
+    box-sizing: border-box;
+}
+#session_password {
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid grey;
+    box-sizing: border-box;
+}
+#btn-login {
+    border-radius: 8px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px 30% 20px 25%;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* Edit and New User section styles */
+input[type=password] {
+    padding: 10px 20px;
+    width: 60%;
+    border: none;
+    border-bottom: 2px solid grey;
+    box-sizing: border-box;
+}
+.form-table {
+    width: 100%;
+}
+.table_radio_text {
+    text-align: right;
+}
+#response_guest1 {
+    width: 90%;
+}
+#response_guest2 {
+    width: 90%;
+}
+
+/* Index section style */
+.field-index {
+    width: 150%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+}

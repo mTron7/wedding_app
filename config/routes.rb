@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    root to: 'responses#home'
+    root to: 'responses#wedding'
     
     resources :responses
     
@@ -7,9 +7,15 @@ Rails.application.routes.draw do
     get 'new' => 'responses#new'
     get 'edit' => 'responses#edit'
     
+    get 'wedding' => 'responses#wedding'
+    
+    #
+    get 'signup'  => 'admins#new' 
     resources :admins
     
-    get 'edit' => 'responses#edit_user'
+    get 'login'  => 'sessions#new'
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
     
 end
     

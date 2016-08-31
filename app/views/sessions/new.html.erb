@@ -1,0 +1,20 @@
+<div class="title">
+  <p>Log in</p>
+</div>
+<br /><br />
+<div class="field">
+    <% flash.each do |key, value| %>
+      <div class="alert"><%= value %></div>
+    <% end %>
+    
+    <%= form_for(:session, url: login_path) do |f| %> 
+    <%= f.email_field :email, :placeholder => "Email" %> 
+    <%= f.password_field :password, :placeholder => "Password" %> 
+    <br /><br />  
+    <div class="actions">
+      <%= f.submit "Log in", id: "btn-login" %>
+    </div>
+    <% end %>
+</div>
+
+<br /><br /><br /><%= link_to "Back to Home", logout_path, method: "delete" %>
