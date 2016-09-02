@@ -1,5 +1,6 @@
 ![Codeship status](https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master)
 
+<p>I just deployed my Ruby on Rails app to Codeship</p>
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
