@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+background-image: url(http://maps.googleapis.com/maps/api/staticmap?center=9000+S+Gale+Ridge+Rd,+San+Ramon,+CA+94582&zoom=13&scale=1&size=300x200&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C9000+S+Gale+Ridge+Rd,+San+Ramon,+CA+94582);
 
 
 /* Centered texts in each section
@@ -114,7 +115,7 @@ body {
   margin: 2%;
   font-weight: bold;
   color: white;
-  font-size: 2.5vh;
+  font-size: 2vh;
 }
 
 /* Gifts section styling */
