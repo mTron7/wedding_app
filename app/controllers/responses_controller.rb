@@ -36,7 +36,7 @@ class ResponsesController < ApplicationController
       @response = Response.new(message_params)  
       respond_to do |format|
         if @response.save
-          format.html { redirect_to @response, notice: 'Thank you for you response!' }
+          format.html { redirect_to @response }
           format.js   {}
           format.json { render json: @response, status: :created, location: @response }
         else
